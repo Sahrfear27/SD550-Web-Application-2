@@ -1,35 +1,10 @@
-import { ChangeEvent, useState } from "react";
-
-function IncreaseByOne() {
-  const [increaseByOne, setIncreaseByOne] = useState(0);
-  const handleCount = () => {
-    setIncreaseByOne(increaseByOne + 1);
-  };
-  return (
-    <div>
-      <button onClick={handleCount}>Increase By One</button>
-      {increaseByOne}
-    </div>
-  );
-}
-function IncreaseByTen() {
-  const [increaseByTen, setIncreaseByTen] = useState(0);
-  const handleCount = () => {
-    setIncreaseByTen(increaseByTen + 10);
-  };
-  return (
-    <div>
-      <button onClick={handleCount}>Increase By Ten</button>
-      {increaseByTen}
-    </div>
-  );
-}
+import React, { useState } from "react";
+import Counter from "./Counter";
 export default function App() {
   return (
     <div>
-      <IncreaseByOne />
-      <br />
-      <IncreaseByTen />
+      <Counter steps={10} />
+      <Counter steps={1} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+// import App from "./App1-NotEfficient";
 import App from "./App";
 import UseRef from "./UseRef";
 const root = ReactDOM.createRoot(
@@ -8,7 +9,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <div>
-    {/* <App /> */}
+    <App />
     <UseRef />
   </div>
 );
