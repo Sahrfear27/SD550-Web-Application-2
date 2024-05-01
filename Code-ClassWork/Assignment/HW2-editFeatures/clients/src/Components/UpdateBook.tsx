@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import { Books } from "../Types/type";
 import booksServices from "../apis/services/books.services";
+
 type Props = {
   onUpdate: (newBook: Books) => void;
 };
@@ -21,23 +22,31 @@ export default function UpdateBook(props: Props) {
     summary: "",
   });
 
-  const { id, title, genre, isbn, format, summary } = newBook;
+  const { id } = newBook;
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget;
+
+    // setNewBook((prevState) => {
+    //   if (name == "title") {
+    //     return { ...prevState, title: value };
+    //   } else {
+    //     return { ...prevState };
+    //   }
+    // });
     setNewBook({ ...newBook, [name]: value });
   };
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  };
-  useEffect(() => {
-    async function updateBok() {
-      try {
-        // const response = await booksServices.updateBooks();
-      } catch (error) {
-        console.log(error);
+    try {
+      const response = await booksServices.updateBooks(id, newBook);
+      console.log(response.data);
+      if (response.status == 201) {
+        onUpdate(response.data);
       }
+    } catch (error) {
+      console.log(error);
     }
-  }, []);
+  };
   return (
     <div>
       <h4 className="text-center">Update Book By Id</h4>
@@ -139,6 +148,7 @@ export default function UpdateBook(props: Props) {
               type="text"
               className="form-control"
               id="colFormLabel"
+              name="summary"
               value={newBook.summary}
               onChange={handleInput}
               placeholder="Enter Summary"

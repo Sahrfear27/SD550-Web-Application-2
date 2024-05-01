@@ -1,12 +1,6 @@
 import http from "../axios";
 import { Books } from "../../Types/type";
-type NuwBook ={
-    title: "",
-    genre: "",
-    isbn: "",
-    format: "",
-    summary: "",
-}
+
 // Get all the books
 const getBooks =()=>{
     return http.get("/books")
@@ -23,13 +17,19 @@ const getOneBook =(id:number)=>{
 }
 
 // Update Book by id
-const updateBooks =(id:number,newBook:NuwBook)=>{
+const updateBooks =(id:number,newBook:Books)=>{
     return http.put(`/books/${id}`,newBook)
+}
+
+// DeleteById
+const deleteBook = (id:number)=>{
+    return http.delete(`/books/${id}`)
 }
 export default{
     getBooks,
     addBooks,
     getOneBook,
-    updateBooks
+    updateBooks,
+    deleteBook
 }
 
