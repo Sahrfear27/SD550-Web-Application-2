@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import GlobalContex from "./Contex";
 import GetBooks from "./Components/Books/GetBooks";
 import libraryServices from "./apis/services/library.services";
+import AddAuthor from "./Components/Authors/AddAuthor";
 function App() {
   const [books, setBooks] = useState<Book[]>([]);
 
@@ -12,7 +13,6 @@ function App() {
   const loadBooks = async () => {
     try {
       const response = await libraryServices.getBook();
-      console.log(response.data);
       if (response.status == 200) {
         setBooks(response.data);
       }
@@ -28,7 +28,10 @@ function App() {
       <GlobalContex.Provider value={{ books, setBooks }}>
         <h4>Integrated Library Management System (ILMS)</h4>
         <AddNewBook />
+        <br />
         <GetBooks />
+        <br />
+        <AddAuthor />
       </GlobalContex.Provider>
     </div>
   );

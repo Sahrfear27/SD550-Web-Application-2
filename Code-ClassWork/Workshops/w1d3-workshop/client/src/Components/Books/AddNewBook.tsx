@@ -1,8 +1,9 @@
-import React, { ChangeEvent, MouseEvent, useState } from "react";
+import React, { ChangeEvent, MouseEvent, useContext, useState } from "react";
 import { Book } from "../../Types/types";
 import libraryServices from "../../apis/services/library.services";
+import GlobalContex from "../../Contex";
 export default function AddNewBook() {
-  const [book, setBook] = useState<Book>({
+  const [book, setNewBook] = useState<Book>({
     id: "",
     title: "",
     genre: "",
@@ -15,8 +16,9 @@ export default function AddNewBook() {
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.currentTarget;
-    setBook({ ...book, [name]: value });
+    setNewBook({ ...book, [name]: value });
   };
+  const { books, setBooks } = useContext(GlobalContex);
   const handleAdd = async (e: MouseEvent<HTMLButtonElement>) => {
     try {
       const response = await libraryServices.addBook({
@@ -28,7 +30,16 @@ export default function AddNewBook() {
         summary,
       });
       if (response.status == 201) {
-        console.log(response.data);
+        setBooks([...books, response.data]);
+        setNewBook({
+          id: "",
+          title: "",
+          genre: "",
+          isbn: "",
+          format: "",
+          summary: "",
+          authors: [],
+        });
       }
     } catch (error) {
       console.log(error);

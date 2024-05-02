@@ -26,6 +26,22 @@
       "isbn": "978-0141439512",
       "format": "Paper",
       "summary": "A static Language"
+    },
+    {
+      "id": "Book4",
+      "title": "Spanish",
+      "genre": "Language",
+      "isbn": "978-0141439511",
+      "format": "PDF",
+      "summary": "English Language"
+    },
+    {
+      "id": "Book5",
+      "title": "C#",
+      "genre": "Programming",
+      "isbn": "978-0141439589",
+      "format": "Paper",
+      "summary": "A static Language"
     }
   ],
   "authors": [
