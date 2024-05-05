@@ -38,6 +38,7 @@ When count is triggered, the innerf function will be called before the outter fu
     </div>
   );
 }
+
 export default function UseEffect() {
   const [showHide, setShowHide] = useState(true);
   return (

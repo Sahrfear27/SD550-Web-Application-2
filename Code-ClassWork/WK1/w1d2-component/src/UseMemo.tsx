@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from "react";
-
 /*
 Use memo will return the memorize value when one of the dependencies have changes
 const cachedValue =useMemo(calculatedValue, dependencies)

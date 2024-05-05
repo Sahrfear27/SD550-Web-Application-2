@@ -5,6 +5,7 @@ import Child from "../Child";
 import News from "../News";
 import Message from "../Message";
 import SecondChild from "../SecondChild";
+import { Navigate } from "react-router-dom";
 export default [
   {
     path: "/home",
@@ -26,7 +27,7 @@ export default [
   },
   {
     path: "/",
-    element: <Home />,
+    element: <Navigate to="/home" replace />,
   },
   {
     path: "/add",
