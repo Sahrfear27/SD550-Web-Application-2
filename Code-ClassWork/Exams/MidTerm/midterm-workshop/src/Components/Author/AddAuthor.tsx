@@ -57,14 +57,14 @@ export default function AddAuthor() {
     <div>
       <h4>Add New Author</h4>
       <div className="text-center">
-        <input
+        {/* <input
           type="text"
           placeholder="Enter Id"
           name="id"
           value={inputValue.id}
           onChange={handleAddAuthor}
           disabled
-        />
+        /> */}
         <br />
         <input
           type="text"

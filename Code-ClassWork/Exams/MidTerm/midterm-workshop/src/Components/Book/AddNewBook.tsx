@@ -67,14 +67,14 @@ export default function AddNewBook() {
   return (
     <div className="text-center">
       <h4>Add New Book To System</h4>
-      <input
+      {/* <input
         type="text"
         placeholder="Enter Id"
         name="id"
         value={inputValue.id}
         onChange={handleInputValue}
         disabled
-      />
+      /> */}
       <br />
       <input
         type="text"

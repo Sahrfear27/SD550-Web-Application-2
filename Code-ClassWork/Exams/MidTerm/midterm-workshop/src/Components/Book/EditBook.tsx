@@ -39,14 +39,14 @@ export default function EditBook() {
   return (
     <div className="text-center">
       <h4>Add New Book To System</h4>
-      <input
+      {/* <input
         type="text"
         placeholder="Enter Id"
         name="id"
         value={update.id}
         onChange={handleAddBook}
         disabled
-      />
+      /> */}
       <br />
       <input
         type="text"

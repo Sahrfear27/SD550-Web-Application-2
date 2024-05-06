@@ -41,14 +41,14 @@ export default function AddPublisher() {
   return (
     <div className="text-center">
       <h4>Add a Publisher</h4>
-      <input
+      {/* <input
         type="text"
         placeholder="Publisher Id"
         name="id"
         value={inputValue.id}
         onChange={handleAddPublisher}
         disabled
-      />
+      /> */}
       <br />
       <input
         type="text"

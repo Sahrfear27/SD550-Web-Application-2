@@ -52,11 +52,12 @@
       "publisher": "10",
       "catalog": {
         "numberOfCopies": "15",
-        "availableCopies": 9
+        "availableCopies": 6
       },
       "authors": [
         "bNPWDwBNMRdcs6_s86qCp",
-        "vNLXsieYytLHA9YH5b2ZW"
+        "vNLXsieYytLHA9YH5b2ZW",
+        "3ogG3ddSzPz_0NjYmUSey"
       ]
     },
     {
@@ -89,7 +90,8 @@
         "availableCopies": "17"
       },
       "authors": [
-        "vNLXsieYytLHA9YH5b2ZW"
+        "vNLXsieYytLHA9YH5b2ZW",
+        "ExEa_gsYz55J29fsBdcLU"
       ]
     },
     {
@@ -119,7 +121,7 @@
       "publisher": "6",
       "catalog": {
         "numberOfCopies": "19",
-        "availableCopies": 16
+        "availableCopies": 10
       },
       "authors": [
         "vNLXsieYytLHA9YH5b2ZW",
@@ -129,7 +131,7 @@
   ],
   "publisher": [
     {
-      "id": 1,
+      "id": "1",
       "name": "MIU Press",
       "phone": "641-123-1234",
       "email": "press@miu.edu",
