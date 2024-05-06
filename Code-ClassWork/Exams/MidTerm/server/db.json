@@ -1,3 +1,153 @@
 {
-    
+  "author": [
+    {
+      "id": "F9lAsNKd570xgzEmuguwG",
+      "firstname": "Thao",
+      "lastname": "Vu",
+      "phone": "6720239",
+      "email": "Tho@gmail",
+      "address": "1000 N 4th St"
+    },
+    {
+      "id": "bNPWDwBNMRdcs6_s86qCp",
+      "firstname": "John",
+      "lastname": "Smith",
+      "phone": "6720240",
+      "email": "John@email.com",
+      "address": "1000 N 4th St"
+    },
+    {
+      "id": "vNLXsieYytLHA9YH5b2ZW",
+      "firstname": "Sahr",
+      "lastname": "Macarthy",
+      "phone": "6720254",
+      "email": "Sahr@gmail.com",
+      "address": "1000 N 4th St"
+    },
+    {
+      "id": "ExEa_gsYz55J29fsBdcLU",
+      "firstname": "Odel",
+      "lastname": "Deo",
+      "phone": "6720241",
+      "email": "Odel@gmail.com",
+      "address": "1000 N 6th St"
+    },
+    {
+      "id": "3ogG3ddSzPz_0NjYmUSey",
+      "firstname": "Kila",
+      "lastname": "Kahn",
+      "phone": "809976",
+      "email": "kaila@email.com",
+      "address": "1000 N 4th St"
+    }
+  ],
+  "book": [
+    {
+      "id": "E1zowOApVMnebmV8N9dgm",
+      "title": "Python",
+      "genre": "Programming",
+      "isbn": "978-0141439518",
+      "format": "Paper",
+      "summary": "Nice for machine learning",
+      "publisher": "10",
+      "catalog": {
+        "numberOfCopies": "15",
+        "availableCopies": 9
+      },
+      "authors": [
+        "bNPWDwBNMRdcs6_s86qCp",
+        "vNLXsieYytLHA9YH5b2ZW"
+      ]
+    },
+    {
+      "id": "5EkzilQseaPLYkhdSHc6p",
+      "title": "C++",
+      "genre": "Programming",
+      "isbn": "978-0141439512",
+      "format": "Paper",
+      "summary": "Nice Language",
+      "publisher": "10",
+      "catalog": {
+        "numberOfCopies": "15",
+        "availableCopies": 9
+      },
+      "authors": [
+        "F9lAsNKd570xgzEmuguwG",
+        "vNLXsieYytLHA9YH5b2ZW"
+      ]
+    },
+    {
+      "id": "05v_9Uuwg4oRSbBUSKKAA",
+      "title": "TypeScript",
+      "genre": "Programming",
+      "isbn": "978-0141439511",
+      "format": "PDF",
+      "summary": "Type Checking",
+      "publisher": "20",
+      "catalog": {
+        "numberOfCopies": "18",
+        "availableCopies": "17"
+      },
+      "authors": [
+        "vNLXsieYytLHA9YH5b2ZW"
+      ]
+    },
+    {
+      "id": "Nil1DgAJqwyoMXMbmLpxh",
+      "title": "English",
+      "genre": "Programming",
+      "isbn": "978-0141439517",
+      "format": "Paper",
+      "summary": "Language",
+      "publisher": "12",
+      "catalog": {
+        "numberOfCopies": "20",
+        "availableCopies": "19"
+      },
+      "authors": [
+        "ExEa_gsYz55J29fsBdcLU",
+        "bNPWDwBNMRdcs6_s86qCp"
+      ]
+    },
+    {
+      "id": "PD3EvpI11MOwKcKCxnzJg",
+      "title": "Math",
+      "genre": "Cognitive Science",
+      "isbn": "978-0141439543",
+      "format": "Paper",
+      "summary": "Critical Thinking",
+      "publisher": "6",
+      "catalog": {
+        "numberOfCopies": "19",
+        "availableCopies": 16
+      },
+      "authors": [
+        "vNLXsieYytLHA9YH5b2ZW",
+        "F9lAsNKd570xgzEmuguwG"
+      ]
+    }
+  ],
+  "publisher": [
+    {
+      "id": 1,
+      "name": "MIU Press",
+      "phone": "641-123-1234",
+      "email": "press@miu.edu",
+      "address": "Fairfield, IA, 5256"
+    },
+    {
+      "id": "not_3Sv0_dXFhs0pNtzvX",
+      "name": "SJCC Press",
+      "phone": "809939",
+      "email": "sjcc@edu.com",
+      "address": "1000 S 4th St"
+    },
+    {
+      "id": "7K_dHe6uShHc5kFsaWPnn",
+      "name": "SJSU",
+      "phone": "6720234",
+      "email": "sjsu@gmail.com",
+      "address": "1000 N 6th St"
+    }
+  ]
 }
