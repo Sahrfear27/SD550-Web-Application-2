@@ -6,6 +6,25 @@ import UseEffect from "./UseEffect";
 import { useState } from "react";
 import GlobalContex from "./Contex";
 import Counter from "./Counter";
+import UseRef from "./UseRef";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Home from "./Home";
+import AddProduct from "./AddProduct";
+
+const routes = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "*",
+    element: <p>Page is not found</p>,
+  },
+  {
+    path: "/add",
+    element: <AddProduct />,
+  },
+]);
 function App() {
   const [state, setState] = useState(10);
   return (
@@ -14,11 +33,13 @@ function App() {
         <h4>Exam Review</h4>
         {/* <UseStateExaple2 /> */}
         <br />
-        {/* <UseMemo /> */}
-        <UseEffect />
+        <UseMemo />
+        {/* <UseEffect /> */}
       </div>
       <hr />
-      <Counter />
+      {/* <Counter /> */}
+      {/* <UseRef /> */}
+      {/* <RouterProvider router={routes} /> */}
     </GlobalContex.Provider>
   );
 }
