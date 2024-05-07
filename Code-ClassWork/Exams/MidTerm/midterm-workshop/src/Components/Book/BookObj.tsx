@@ -17,24 +17,44 @@ export default function BookObj(props: Props) {
     data.authors
   );
 
-  // const [hoverBookId, setHorverBookId] = useState<string | null>(null);
-  // handle the check bok to select
+  // // const [hoverBookId, setHorverBookId] = useState<string | null>(null);
+  // // handle the check bok to select
+  // const handleSelect = (e: ChangeEvent<HTMLInputElement>) => {
+  //   const authorId = e.currentTarget.value;
+
+  //   // Check if the array of author id include the id that is being checked
+  //   if (selectedAuthor?.includes(authorId)) {
+  //     const newArray = selectedAuthor.filter((id) => id !== authorId);
+  //     setSelectedAuthor(newArray);
+  //   } else {
+  //     if (selectedAuthor) {
+  //       setSelectedAuthor([...selectedAuthor, authorId]);
+  //     } else {
+  //       // Add new author id that does not exist
+  //       setSelectedAuthor([authorId]);
+  //     }
+  //   }
+  // };
   const handleSelect = (e: ChangeEvent<HTMLInputElement>) => {
     const authorId = e.currentTarget.value;
 
-    // Check if the array of author id include the id that is being checked
+    // Check if the selectedAuthor array contains the authorId
     if (selectedAuthor?.includes(authorId)) {
+      // If the authorId is already selected, remove it from the array
       const newArray = selectedAuthor.filter((id) => id !== authorId);
       setSelectedAuthor(newArray);
     } else {
+      // If the authorId is not selected
       if (selectedAuthor) {
+        // If there are already selected authors, add the new authorId to the array
         setSelectedAuthor([...selectedAuthor, authorId]);
       } else {
-        // Add new author id that does not exist
+        // If no author is selected yet, create a new array with the authorId
         setSelectedAuthor([authorId]);
       }
     }
   };
+
   const handleUpdate = async (e: MouseEvent<HTMLButtonElement>) => {
     try {
       const obj = { ...data, authors: selectedAuthor };
