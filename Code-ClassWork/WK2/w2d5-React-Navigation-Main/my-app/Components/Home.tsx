@@ -26,9 +26,10 @@ export default function Home(props: Props) {
           })
         }
       />
-      <Navigator>
-        <Screen name="" />
-      </Navigator>
     </View>
   );
 }
+
+// <Navigator>
+// {/* <Screen name="" /> */}
+// </Navigator>
