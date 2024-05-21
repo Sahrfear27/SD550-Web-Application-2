@@ -21,7 +21,7 @@ export default function App() {
         const data = await AsyncStorage.getItem(STORAGE_KEY);
         if (data !== null) {
           setState({ ...state, token: data });
-          console.log(state.token);
+          // console.log(state.token);
         }
       } catch (error) {
         console.log(error);
