@@ -1,0 +1,66 @@
+{
+  "users": [
+    {
+      "id": "d3c9",
+      "name": "mary",
+      "email": "mary@gmail.com"
+    },
+    {
+      "id": "50de",
+      "name": "john",
+      "email": "john@gmail.com"
+    },
+    {
+      "id": "26b2",
+      "name": "Sahrfear",
+      "email": "sahr@miu.edu"
+    },
+    {
+      "id": "cd5e",
+      "name": "Sahr",
+      "email": "sah@miu.edu"
+    },
+    {
+      "id": "32f5",
+      "name": "Kai",
+      "email": "kai@gmail.com"
+    },
+    {
+      "id": "8b48",
+      "name": "Kao",
+      "email": "kao@yahoo.com"
+    }
+  ],
+  "courses": [
+    {
+      "id": "CIS002",
+      "title": "Web Application Programming",
+      "faculty": "Sahr",
+      "code": "CS473",
+      "rating": 3,
+      "reviews": [
+        {
+          "name": "Sahrfear",
+          "rating": 3,
+          "comment": "This course is amazing"
+        }
+      ]
+    },
+    {
+      "id": "192b",
+      "title": "Server Side Programming",
+      "faculty": "Tho",
+      "code": "SD500",
+      "rating": 2,
+      "reviews": []
+    },
+    {
+      "id": "e71f",
+      "title": "Angular",
+      "faculty": "Asaad Saad",
+      "code": "SD560",
+      "rating": 2,
+      "reviews": []
+    }
+  ]
+}
