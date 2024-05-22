@@ -1,5 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import LogIn from "./Components/Users/LogIn";
 import CourseScreen from "./Components/Courses/CourseScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -10,7 +10,41 @@ import { Alert } from "react-native";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 const { Navigator, Screen } = createBottomTabNavigator();
+
+// Using reducer
+
+// Initial State
+const initialState = {
+  course: [],
+  logIn: false,
+};
+// State type
+type StateType = {
+  course: CoursesType[];
+  logIn: boolean;
+};
+
+// ActionType
+type ActionType = {
+  type: string;
+  data: StateType;
+};
+// Reducer Function
+function reducer(state: StateType, action: ActionType) {
+  const { type, data } = action;
+  switch (type) {
+    case "course":
+      return { ...state, data };
+    case "logIn":
+      return { ...state, data };
+    default:
+      return state;
+  }
+}
+
 export default function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   const [course, setCourse] = useState<CoursesType[]>([]);
   const [logIn, setLogIn] = useState<boolean>(false);
 
@@ -19,11 +53,13 @@ export default function App() {
       const response = await axios.get("http://localhost:9000/courses");
       if (response.status == 200) {
         setCourse(response.data);
+        // const arr = {...state.course, response.data}
+        // dispatch({type:"course", data:response.data})
       }
       const logInUser = await AsyncStorage.getItem("user");
       if (logInUser) {
         const resut = JSON.parse(logInUser); //Object
-        setLogIn(resut.logIn);
+        // setLogIn(resut.logIn);
       }
     } catch (error) {
       Alert.alert("Fail to load Courses");

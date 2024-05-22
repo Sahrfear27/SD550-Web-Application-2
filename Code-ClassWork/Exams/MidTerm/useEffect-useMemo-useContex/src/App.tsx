@@ -33,8 +33,8 @@ function App() {
         <h4>Exam Review</h4>
         {/* <UseStateExaple2 /> */}
         <br />
-        <UseMemo />
-        {/* <UseEffect /> */}
+        {/* <UseMemo /> */}
+        <UseEffect />
       </div>
       <hr />
       {/* <Counter /> */}
