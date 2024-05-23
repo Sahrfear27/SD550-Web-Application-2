@@ -20,8 +20,8 @@ const initialState = {
 };
 // State type
 type StateType = {
-  course: CoursesType[];
-  logIn: boolean;
+  course?: CoursesType[];
+  logIn?: boolean;
 };
 
 // ActionType
@@ -34,9 +34,9 @@ function reducer(state: StateType, action: ActionType) {
   const { type, data } = action;
   switch (type) {
     case "course":
-      return { ...state, data };
+      return { ...state, course: data.course };
     case "logIn":
-      return { ...state, data };
+      return { ...state, logIn: data.logIn };
     default:
       return state;
   }
@@ -44,22 +44,19 @@ function reducer(state: StateType, action: ActionType) {
 
 export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  const [course, setCourse] = useState<CoursesType[]>([]);
-  const [logIn, setLogIn] = useState<boolean>(false);
+  const { logIn } = state;
 
   async function loadCourse() {
     try {
       const response = await axios.get("http://localhost:9000/courses");
       if (response.status == 200) {
-        setCourse(response.data);
-        // const arr = {...state.course, response.data}
-        // dispatch({type:"course", data:response.data})
+        dispatch({ type: "course", data: { course: response.data } });
       }
       const logInUser = await AsyncStorage.getItem("user");
       if (logInUser) {
         const resut = JSON.parse(logInUser); //Object
-        // setLogIn(resut.logIn);
+
+        dispatch({ type: "logIn", data: { logIn: resut.logIn } });
       }
     } catch (error) {
       Alert.alert("Fail to load Courses");
@@ -69,10 +66,16 @@ export default function App() {
     loadCourse();
   }, []);
   if (!logIn) {
-    return <LogIn setLogIn={setLogIn} />;
+    return (
+      <LogIn
+        setLogIn={(status) =>
+          dispatch({ type: "logIn", data: { logIn: status } })
+        }
+      />
+    );
   }
   return (
-    <GlobalContex.Provider value={{ course, setCourse, setLogIn, logIn }}>
+    <GlobalContex.Provider value={{ state, dispatch }}>
       <NavigationContainer>
         <Navigator
           initialRouteName="Home"

@@ -18,18 +18,20 @@ import { RouteProp, useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 type CoursePros = StackNavigationProp<CourseStackParamList, "add">;
 export default function CourseList() {
-  const { course, setLogIn, setCourse } = useContext(GlobalContex);
-  const [displayData, setDisplayData] = useState(course);
+  // const { course, setLogIn, setCourse } = useContext(GlobalContex);
+  const { state, dispatch } = useContext(GlobalContex);
+  const [displayData, setDisplayData] = useState(state.course);
   const [inputValue, setInputValue] = useState("");
   const navigation = useNavigation<any>();
   useEffect(() => {
-    setDisplayData(course);
-  }, [course]);
+    setDisplayData(state.course);
+  }, [state.course]);
 
   const handleLogOut = () => {
     try {
       AsyncStorage.removeItem("user");
-      setLogIn(false);
+      // setLogIn(false);
+      dispatch({ type: "logIn", data: { logIn: false } });
     } catch (error) {
       Alert.alert("Try again");
     }
@@ -37,7 +39,7 @@ export default function CourseList() {
 
   const handleSearch = (text: string) => {
     setInputValue(text);
-    const matchingElement = course.filter((courses) => {
+    const matchingElement = state.course!.filter((courses) => {
       return courses.title.toLowerCase().startsWith(text.trim().toLowerCase());
     });
     setDisplayData(matchingElement);

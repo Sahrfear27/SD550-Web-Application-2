@@ -9,7 +9,8 @@ import axios from "axios";
 type EditRouteProps = RouteProp<CourseStackParamList, "edit">;
 
 export default function EditCourse() {
-  const { course, setCourse } = useContext(GlobalContex);
+  // const { course, setCourse } = useContext(GlobalContex);
+  const { state, dispatch } = useContext(GlobalContex);
   const route = useRoute<EditRouteProps>();
   const { data } = route.params;
   const navigation = useNavigation();
@@ -22,13 +23,14 @@ export default function EditCourse() {
         inputValue
       );
       if (response.status == 200) {
-        const courseIndex = course.findIndex(
+        const courseIndex = state.course!.findIndex(
           (courses) => courses.id == inputValue.id
         );
         if (courseIndex !== -1) {
-          course[courseIndex] = inputValue;
+          state.course![courseIndex] = inputValue;
         }
-        setCourse([...course]);
+        // setCourse([...course]);
+        dispatch({ type: "course", data: { course: state.course } });
         Alert.alert("Update Successful");
         navigation.goBack();
       }

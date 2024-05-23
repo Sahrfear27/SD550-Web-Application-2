@@ -31,7 +31,7 @@ export default function App() {
   }, []);
   return (
     <GlobalContex.Provider value={{ state, setState }}>
-      <View style={styles.container}>
+      <View style={[styles.container]}>
         {state.token ? <ProductList /> : <Login />}
       </View>
     </GlobalContex.Provider>

@@ -5,7 +5,8 @@ import axios from "axios";
 import GlobalContex from "../Contex/contex";
 
 export default function AddCourse() {
-  const { course, setCourse } = useContext(GlobalContex);
+  // const { course, setCourse } = useContext(GlobalContex);
+  const { state, dispatch } = useContext(GlobalContex);
   const [title, setTitle] = useState("");
   const [faculty, setFaculty] = useState("");
   const [rating, setRating] = useState("");
@@ -31,7 +32,8 @@ export default function AddCourse() {
           newCourse
         );
         if (response.status == 201) {
-          setCourse([...course, response.data]);
+          const updatedCourse = [...state.course!, response.data];
+          dispatch({ type: "course", data: { course: updatedCourse } });
           Alert.alert("Add Successful");
         }
       } else {

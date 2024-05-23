@@ -16,7 +16,8 @@ type CourseObjectNavigationProp = StackNavigationProp<
   "edit"
 >;
 export default function CourseObject({ data, index }: Props) {
-  const { course, setCourse } = useContext(GlobalContex);
+  // const { course, setCourse } = useContext(GlobalContex);
+  const { state, dispatch } = useContext(GlobalContex);
   const navigation = useNavigation<CourseObjectNavigationProp>();
   const handleEdit = () => {
     navigation.navigate("edit", { data: data });
@@ -29,10 +30,11 @@ export default function CourseObject({ data, index }: Props) {
       );
 
       if (response.status == 200) {
-        const matchingElement = course.filter(
+        const matchingElement = state.course!.filter(
           (existingCourses) => existingCourses.id !== data.id
         );
-        setCourse(matchingElement);
+        // setCourse(matchingElement);
+        dispatch({ type: "course", data: { course: matchingElement } });
         Alert.alert("Delete Successful");
       }
     } catch (error) {
